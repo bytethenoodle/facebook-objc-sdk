@@ -28,6 +28,3 @@ echo "$CURRENT_VERSION"
 if [ -z "$COCOAPODS_TRUNK_TOKEN" ]; then
   echo "COCOAPODS_TRUNK_TOKEN not set"
 fi
-
-. ~/.rvm/scripts/rvm
-rvm use default
