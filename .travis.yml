@@ -8,6 +8,7 @@ env:
     - secure: uHizSYU7rXsnRjb6NS0KrIIwII4ouefDaDW1OJkvgFaoIoL2hqqP6q3vILZaY2bGiTnU7RnDxGvbwy7dr2w8Q9Rp4djpeRkTyHP+slzAl8b0LD034uB4q/3KPtc607atyYiMNoeeOCWe4j3tnMU2EFI+/mH8gr5i/zIlG1FQwfdl+dFznriS4tb2x8tIdcUnkxSN/yJAwUCzRe/G4jOBCqMFpe8a73K3VJsdjvuCsfJprH3YJTNtjFqdUkzxiGk/Pv72gty3bjvEskfcDj8uMy1Jcq40/+he8fHO5RX+AxGNdU2u/XpUSwMddu8mEinc9GiLyogYRoKI0C+8MjBWg+sUOOPXJOSXAAOcxclyCI8kfYaUe5MePeAqCQiU8+b9WXwz8yoJFXkF2+6G73Q776SwBLfUtGDHU88gV+/TT3+4wqO/CM0rZEWzCrQ5NE2dBEaQ1sYHLIr+VC8rL/QWzhMil09QlLBuv7zOLEMvyhr/FX3fwbNCxd/7USBc/V0Cnp2HCvJwhQ3xobFlrzwzidnKCs3BhRs3FpVQgwwcvwgpIKFzoVQQZ1ZTF2ICYJH6LQkElt3xAd2iklrrqJDRjSw1Il6l3wD3nS3F7mlxnMpwk/1rkogyMY/gqw0JNLjnQGJWaG4/qoJvHD7ZjGfZZn32AzubQ2/UTcMiy0i3kr4= # COCOAPODS_TRUNK_TOKEN
 
 stages:
+  - prep
   - name: test
     if: '! tag =~ /^v([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)($|[-+][0-9A-Za-z+.-]+$)/'
   # - name: tag
@@ -17,6 +18,10 @@ stages:
 
 jobs:
   include:
+    - stage: prep
+      name: Prepare for Build
+      osx_image: xcode10.1
+      script: echo "Prepared for Build"
     - name: Xcode - iOS 12.0
       osx_image: xcode10.1
       env:
