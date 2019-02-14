@@ -198,6 +198,11 @@ build_sdk() {
     #   done
     # fi
 
+    mkdir -p Carthage/Release
+
+    touch Carthage/Release/test-1.txt
+    touch Carthage/Release/test-2.txt
+
     local test_data="Hello World"
     echo "$test_data" >Carthage/Release/test-1.txt
     echo "$test_data" >Carthage/Release/test-2.txt
