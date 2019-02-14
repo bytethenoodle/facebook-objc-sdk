@@ -187,16 +187,20 @@ build_sdk() {
   }
 
   build_carthage() {
-    carthage build --no-skip-current
+    # carthage build --no-skip-current
 
-    if [ "$1" == "--archive" ]; then
-      for kit in "${SDK_KITS[@]}"; do
-        if [ -d "$SDK_DIR"/Carthage/Build/iOS/"$kit".framework ] ||
-          [ -d "$SDK_DIR"/Carthage/Build/tvOS/"$kit".framework ]; then
-          carthage archive "$kit" --output Carthage/Release/
-        fi
-      done
-    fi
+    # if [ "$1" == "--archive" ]; then
+    #   for kit in "${SDK_KITS[@]}"; do
+    #     if [ -d "$SDK_DIR"/Carthage/Build/iOS/"$kit".framework ] ||
+    #       [ -d "$SDK_DIR"/Carthage/Build/tvOS/"$kit".framework ]; then
+    #       carthage archive "$kit" --output Carthage/Release/
+    #     fi
+    #   done
+    # fi
+
+    local test_data="Hello World"
+    echo "$test_data" >Carthage/Release/test-1.txt
+    echo "$test_data" >Carthage/Release/test-2.txt
   }
 
   local build_type="$1"
