@@ -12,8 +12,6 @@ stages:
     if: '! tag =~ /^v([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)($|[-+][0-9A-Za-z+.-]+$)/'
   # - name: tag
   #   if: '! tag =~ /^v([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)($|[-+][0-9A-Za-z+.-]+$)/'
-  - name: prep
-    if: tag =~ /^v([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)($|[-+][0-9A-Za-z+.-]+$)/
   - name: release
     if: tag =~ /^v([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)\.([0-9]{1}|[1-9][0-9]+)($|[-+][0-9A-Za-z+.-]+$)/
 
@@ -45,10 +43,6 @@ jobs:
     #   name: Tag Version
     #   osx_image: xcode10.1
     #   script: sh scripts/run.sh tag-push-current-version
-    - stage: prep
-      name: Prepare for Release
-      osx_image: xcode10.1
-      script: echo "Prepared for Build"
     - stage: release
       name: GitHub
       osx_image: xcode10.1
@@ -64,10 +58,12 @@ jobs:
           body: Consult Changelog
           on:
             all_branches: true
+            tags: true
         - provider: script
           script: sh scripts/run.sh release cocoapods --allow-warnings
           on:
             all_branches: true
+            tags: true
 
 before_install: sh scripts/travis/before_install.sh
 install: sh scripts/travis/install.sh
