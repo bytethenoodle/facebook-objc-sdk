@@ -21,5 +21,13 @@
 # Main Script
 # --------------
 
-CURRENT_VERSION=$(grep -Eo 'FBSDK_PROJECT_VERSION=.*' "$SDK_DIR/$MAIN_VERSION_FILE" | awk -F'=' '{print $2}')
-export CURRENT_VERSION
+sh scripts/run.sh
+
+echo "$CURRENT_VERSION"
+
+if [ -z "$COCOAPODS_TRUNK_TOKEN" ]; then
+  echo "COCOAPODS_TRUNK_TOKEN not set"
+fi
+
+. ~/.rvm/scripts/rvm
+rvm use default
