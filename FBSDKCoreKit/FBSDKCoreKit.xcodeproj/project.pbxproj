@@ -852,6 +852,20 @@
 			remoteGlobalIDString = 09110A4019805F4800D175E4;
 			remoteInfo = "OHHTTPStubs iOS StaticLib";
 		};
+		A5FF12C0221E5B1B00AF34F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D99470F1A9531B5003375EC /* OCMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F0B950F11B0080BE00942C38;
+			remoteInfo = "OCMock iOS";
+		};
+		A5FF12C2221E5B1B00AF34F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D99470F1A9531B5003375EC /* OCMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 817EB1621BD765130047E85A;
+			remoteInfo = "OCMock tvOS";
+		};
 		ADEA17811B7ECA1A0070EDC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7E55573F1A8E89A800344F86 /* OHHTTPStubs.xcodeproj */;
@@ -1761,6 +1775,8 @@
 				9D9947251A9531B5003375EC /* OCMockTests.xctest */,
 				9D9947271A9531B5003375EC /* libOCMock.a */,
 				9D9947291A9531B5003375EC /* OCMockLibTests.xctest */,
+				A5FF12C1221E5B1B00AF34F2 /* OCMock.framework */,
+				A5FF12C3221E5B1B00AF34F2 /* OCMock.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2445,6 +2461,20 @@
 			remoteRef = 9D9947321A9531B5003375EC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		A5FF12C1221E5B1B00AF34F2 /* OCMock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OCMock.framework;
+			remoteRef = A5FF12C0221E5B1B00AF34F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A5FF12C3221E5B1B00AF34F2 /* OCMock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OCMock.framework;
+			remoteRef = A5FF12C2221E5B1B00AF34F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADEA17821B7ECA1A0070EDC0 /* OHHTTPStubs.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -2949,6 +2979,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 814AC8861D1B552600D61E6C /* Debug.xcconfig */;
 			buildSettings = {
+				ENABLE_BITCODE = YES;
 			};
 			name = Debug;
 		};
@@ -2956,6 +2987,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 814AC8871D1B552600D61E6C /* Release.xcconfig */;
 			buildSettings = {
+				ENABLE_BITCODE = YES;
 			};
 			name = Release;
 		};
